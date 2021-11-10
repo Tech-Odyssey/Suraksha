@@ -91,6 +91,7 @@
         android:shadowDy="5"
         android:shadowRadius="2"
         android:text="Sign Up"
+        android:onClick="gotoregister"
         android:textColor="#E6E6E6"
         android:textSize="20dp"
         android:textStyle="bold"

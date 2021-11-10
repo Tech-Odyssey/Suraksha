@@ -9,10 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shuraksha">
-        <activity
-            android:name=".homeslideact"
-            android:label="@string/title_activity_homeslideact"
-            android:theme="@style/Theme.Shuraksha.NoActionBar"></activity>
+        <activity android:name=".register"></activity>
+
         <activity android:name=".homeact" />
         <activity android:name=".MainActivity">
             <intent-filter>
