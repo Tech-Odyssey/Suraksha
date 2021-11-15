@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,33 +20,42 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class register extends AppCompatActivity {
 
-
+public class login extends AppCompatActivity {
     EditText mEmail,mPassword;
-    Button mRegisterBtn;
-    TextView mLoginBtn;
+    TextView mRegisterBtn;
+    Button mLoginBtn;
     FirebaseAuth fAuth;
-    // progress bar if needed to tbd
+
 
 
 
     @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
+        setContentView(R.layout.activity_login);
 
-        mEmail = findViewById(R.id.email);
-        mPassword = findViewById(R.id.password);
-        mRegisterBtn = findViewById(R.id.registerBtn);
+
+        mEmail = findViewById(R.id.email1);
+        mPassword = findViewById(R.id.password1);
+        mRegisterBtn = findViewById(R.id.textView2);
+        mLoginBtn = findViewById(R.id.loginbtn);
+
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(login.this, register.class);
+                startActivity(i1);
+            }
+        });
 
         fAuth = FirebaseAuth.getInstance();
-        if(fAuth.getCurrentUser() !=null){
-            finish();
-        }
 
-        mRegisterBtn.setOnClickListener(new View.OnClickListener(){
+        mLoginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
@@ -69,26 +80,25 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), login.class));
                         }else{
-                            Toast.makeText(register.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
-
-    }
-
-    public void gotosignin(View view) {
-        Intent isignin = new Intent(this, login.class);
-        startActivity(isignin);
     }
 
 
     public void gotohome(View view){
-        Intent ihome = new Intent(this, homeact.class);
-        startActivity(ihome);
+        Intent intent = new Intent(this, homeact.class);
+        startActivity(intent);
+    }
+
+    public void gotoregister(View view) {
+        Intent i1 = new Intent(this, register.class);
+        startActivity(i1);
     }
 }
