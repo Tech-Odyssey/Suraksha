@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeact"
-    android:background="@color/greyblack"
+android:background="@drawable/mainscreenbg"
+
     >
 
     <ImageView
