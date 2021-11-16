@@ -19,21 +19,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class login extends AppCompatActivity {
     EditText mEmail,mPassword;
-    TextView mRegisterBtn;
+    Button mRegisterBtn;
     Button mLoginBtn;
     FirebaseAuth fAuth;
 
-
-
-
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
@@ -42,18 +40,24 @@ public class login extends AppCompatActivity {
 
         mEmail = findViewById(R.id.email1);
         mPassword = findViewById(R.id.password1);
-        mRegisterBtn = findViewById(R.id.textView2);
+        mRegisterBtn = findViewById(R.id.register1);
         mLoginBtn = findViewById(R.id.loginbtn);
 
-        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = fAuth.getCurrentUser();
+
+        if(fAuth.getCurrentUser() !=null){
+            finish();
+        }
+
+        /*mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(login.this, register.class);
-                startActivity(i1);
-            }
-        });
+                //Toast.makeText(getApplicationContext(), "working", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(getApplicationContext(), register.class);
+                startActivity(i1);}
+        });*/
 
-        fAuth = FirebaseAuth.getInstance();
 
         mLoginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -75,20 +79,25 @@ public class login extends AppCompatActivity {
                     return;
                 }
 
-                // for registering the user in firebase
-                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                // to authenticate the user in firebase
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(login.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), login.class));
+                            Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), homeact.class));
                         }else{
-                            Toast.makeText(login.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "login Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
+    }
+
+    public void gotoregister(View view){
+        Intent i1 = new Intent(this, register.class);
+        startActivity(i1);
     }
 
 
@@ -97,8 +106,5 @@ public class login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void gotoregister(View view) {
-        Intent i1 = new Intent(this, register.class);
-        startActivity(i1);
-    }
+
 }
