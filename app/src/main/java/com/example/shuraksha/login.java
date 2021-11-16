@@ -46,7 +46,9 @@ public class login extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
 
-        if(fAuth.getCurrentUser() !=null){
+
+        if(user!=null){
+            startActivity(new Intent(login.this, homeact.class));
             finish();
         }
 
