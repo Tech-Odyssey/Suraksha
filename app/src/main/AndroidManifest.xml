@@ -3,7 +3,8 @@
     package="com.example.shuraksha">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shuraksha">
+        <activity
+            android:name=".maps_activity"
+            android:exported="false" />
+
+
         <activity android:name=".register" />
         <activity android:name=".homeact" />
         <activity android:name=".login">
