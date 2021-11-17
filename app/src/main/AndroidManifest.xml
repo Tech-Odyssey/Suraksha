@@ -12,9 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shuraksha">
-        <activity
-            android:name=".maps_activity"
-            android:exported="false" />
 
 
         <activity android:name=".register" />
