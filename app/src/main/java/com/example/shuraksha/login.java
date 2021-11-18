@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class login extends AppCompatActivity {
     Button mLoginBtn;
     FirebaseAuth fAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class login extends AppCompatActivity {
         mPassword = findViewById(R.id.password1);
         mRegisterBtn = findViewById(R.id.register1);
         mLoginBtn = findViewById(R.id.loginbtn);
+
 
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();

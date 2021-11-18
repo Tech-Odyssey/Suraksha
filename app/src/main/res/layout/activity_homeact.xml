@@ -10,7 +10,7 @@ android:background="@drawable/mainscreenbg"
     >
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/sos_img"
         android:layout_width="305dp"
         android:layout_height="425dp"
         app:layout_constraintBottom_toBottomOf="parent"
