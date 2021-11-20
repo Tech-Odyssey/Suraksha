@@ -20,7 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class homeact extends AppCompatActivity {
     Button mlogout;
+    Button mmessages;
     ImageView mSos;
+    Button mssgs;
     GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +30,19 @@ public class homeact extends AppCompatActivity {
         setContentView(R.layout.activity_homeact);
         mSos = findViewById(R.id.sos_img);
         mlogout = findViewById(R.id.logout);
+        mmessages = findViewById(R.id.MSSGS);
         mSos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Its working", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mmessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent2 = new Intent(homeact.this,messages.class);
+                startActivity(intent2);
             }
         });
         mlogout.setOnClickListener(new View.OnClickListener() {
