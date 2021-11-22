@@ -2,6 +2,7 @@ package com.example.shuraksha;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -9,6 +10,7 @@ import android.Manifest;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
@@ -22,7 +24,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-
+import com.hitomi.cmlibrary.CircleMenu;
+import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
 
 
@@ -33,6 +36,11 @@ public class homeact extends AppCompatActivity {
     EditText mnumber;
     EditText mmessageforSOS;
     final int SEND_SMS_REQUEST_CODE =1;
+
+    // for circle menu
+    CircleMenu circleMenu;
+    ConstraintLayout constraintLayout;
+
     GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,58 @@ public class homeact extends AppCompatActivity {
         mmessages = findViewById(R.id.MSSGS);
         mnumber = findViewById(R.id.editTextPhone);
         mmessageforSOS = findViewById(R.id.messagehome);
+        //circle menu
+        circleMenu = findViewById(R.id.circle_menu);
+        constraintLayout = findViewById(R.id.constraint_layout);
+
+        // for circle menu
+        circleMenu.setMainMenu(Color.parseColor("#FF8385"),R.mipmap.list,R.mipmap.multiply)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.home)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.add)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.account)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.gear)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.logout)
+                .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.help)
+                .setOnMenuSelectedListener(new OnMenuSelectedListener() {
+                    @Override
+                    public void onMenuSelected(int index) {
+                        switch (index){
+                            case 0:
+                                Toast.makeText(homeact.this, "Home", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                Intent intent = new Intent(homeact.this, homeact.class);
+                                startActivity(intent);
+                                break;
+                            case 1:
+                                Toast.makeText(homeact.this, "Add recipe will be available soon", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                break;
+                            case 2:
+                                Toast.makeText(homeact.this, "Your profile is being scanned by CIA", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                break;
+                            case 3:
+                                Toast.makeText(homeact.this, "Settings is currently on vacation", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                break;
+                            case 4:
+                                Toast.makeText(homeact.this, "You have been logged out bye bye", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                FirebaseAuth.getInstance().signOut();
+                                Intent intent2 = new Intent(homeact.this,login.class);
+                                startActivity(intent2);
+                                break;
+                            case 5:
+                                Toast.makeText(homeact.this, "Help is currently helpless", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                break;
+                        }
+                    }
+                });
+
+
+
+
 
         mmessages.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +156,8 @@ public class homeact extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 
