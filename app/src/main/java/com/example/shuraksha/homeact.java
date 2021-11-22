@@ -73,7 +73,7 @@ public class homeact extends AppCompatActivity {
                                 startActivity(intent);
                                 break;
                             case 1:
-                                Toast.makeText(homeact.this, "Add recipe will be available soon", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(homeact.this, "New Features will be here", Toast.LENGTH_SHORT).show();
                                 constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
                                 break;
                             case 2:
@@ -160,5 +160,8 @@ public class homeact extends AppCompatActivity {
     }
 
 
-
+    public void gotocrime(View view) {
+        Intent intentcrime=new Intent(homeact.this,crimerate.class);
+        startActivity(intentcrime);
+    }
 }
