@@ -23,8 +23,8 @@ android:background="@drawable/mainscreenbg"
 
     <ImageView
         android:id="@+id/sos_img"
-        android:layout_width="305dp"
-        android:layout_height="425dp"
+        android:layout_width="246dp"
+        android:layout_height="305dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +38,10 @@ android:background="@drawable/mainscreenbg"
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you in an\nEmergency ?"
+        android:text="You are safe with\nSuraksha"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="32dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +49,8 @@ android:background="@drawable/mainscreenbg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
+
+    // circle menu
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -64,21 +66,7 @@ android:background="@drawable/mainscreenbg"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
-
-    // circle menu
-
-    <EditText
-        android:id="@+id/messagehome"
-        android:layout_width="154dp"
-        android:layout_height="73dp"
-        android:hint="Message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.389"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintVertical_bias="0.561" />
 
     <com.hitomi.cmlibrary.CircleMenu
         android:id="@+id/circle_menu"
@@ -86,10 +74,10 @@ android:background="@drawable/mainscreenbg"
         android:layout_height="289dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/MSSGS"

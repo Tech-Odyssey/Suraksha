@@ -49,7 +49,7 @@ public class homeact extends AppCompatActivity {
         mSos = findViewById(R.id.sos_img);
         mmessages = findViewById(R.id.MSSGS);
         mnumber = findViewById(R.id.editTextPhone);
-        mmessageforSOS = findViewById(R.id.messagehome);
+//        mmessageforSOS = findViewById(R.id.messagehome);
         //circle menu
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
@@ -144,11 +144,9 @@ public class homeact extends AppCompatActivity {
 
     }
 
-    public void gotohelpline(View view) {
-    }
 
-    public void gotomap(View view) {
-    }
+
+
 
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
