@@ -6,9 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".homeact"
 android:background="@drawable/mainscreenbg"
-    android:id="@+id/constraint_layout">
+    android:id="@+id/constraint_layout"><![CDATA[
 
     >
+
+    // for message
+
+    // circle menu
+
+
+
+
+
+
+    ]]>
 
     <ImageView
         android:id="@+id/sos_img"
@@ -16,39 +27,12 @@ android:background="@drawable/mainscreenbg"
         android:layout_height="425dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318"
+        app:layout_constraintVertical_bias="0.156"
         app:srcCompat="@drawable/sosbut"
 
         />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Helpline"
-        android:onClick="gotohelpline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map"
-        android:onClick="gotomap"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
 
     <TextView
         android:id="@+id/textView4"
@@ -64,9 +48,7 @@ android:background="@drawable/mainscreenbg"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
-
-    // for message
+        app:layout_constraintVertical_bias="0.024" />
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -79,12 +61,12 @@ android:background="@drawable/mainscreenbg"
         android:textColorHint="#6EFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
-    // circle menu
+        app:layout_constraintVertical_bias="0.623" />
 
+    // circle menu
 
     <EditText
         android:id="@+id/messagehome"
@@ -93,35 +75,21 @@ android:background="@drawable/mainscreenbg"
         android:hint="Message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.794" />
-    // circle menu
+        app:layout_constraintVertical_bias="0.718" />
 
     <com.hitomi.cmlibrary.CircleMenu
         android:id="@+id/circle_menu"
-        android:layout_width="167dp"
-        android:layout_height="178dp"
+        android:layout_width="210dp"
+        android:layout_height="289dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.994"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.995" />
 
     <Button
         android:id="@+id/MSSGS"
@@ -130,10 +98,10 @@ android:background="@drawable/mainscreenbg"
         android:text="Messages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.544" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

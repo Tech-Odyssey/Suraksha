@@ -47,7 +47,6 @@ public class homeact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homeact);
         mSos = findViewById(R.id.sos_img);
-        mlogout = findViewById(R.id.logout);
         mmessages = findViewById(R.id.MSSGS);
         mnumber = findViewById(R.id.editTextPhone);
         mmessageforSOS = findViewById(R.id.messagehome);
@@ -139,23 +138,7 @@ public class homeact extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
-        mlogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*switch (v.getId()) {
-                    // ...
-                    case R.id.logout:
-                        revokeAccess();
-                        signOut();
-                        break;
-                    // ...
-                }*/
-                FirebaseAuth.getInstance().signOut();
-                Intent intent2 = new Intent(homeact.this,login.class);
-                startActivity(intent2);
 
-            }
-        });
 
 
 
