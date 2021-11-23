@@ -19,6 +19,10 @@ android:background="@drawable/mainscreenbg"
 
 
 
+
+
+
+
     ]]>
 
     <ImageView
@@ -27,11 +31,11 @@ android:background="@drawable/mainscreenbg"
         android:layout_height="305dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156"
-        app:srcCompat="@drawable/sosbut"
-        />
+        app:layout_constraintVertical_bias="0.187"
+        app:srcCompat="@drawable/sosbut" />
 
     <TextView
         android:id="@+id/textView4"
@@ -69,11 +73,10 @@ android:background="@drawable/mainscreenbg"
 
     <com.hitomi.cmlibrary.CircleMenu
         android:id="@+id/circle_menu"
-        android:layout_width="210dp"
-        android:layout_height="289dp"
+        android:layout_width="161dp"
+        android:layout_height="227dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -85,23 +88,23 @@ android:background="@drawable/mainscreenbg"
         android:text="Messages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crime Rate"
         android:onClick="gotocrime"
+        android:text="Crime Rate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.767" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

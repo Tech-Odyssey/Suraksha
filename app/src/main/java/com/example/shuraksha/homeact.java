@@ -146,8 +146,6 @@ public class homeact extends AppCompatActivity {
 
 
 
-
-
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         Intent intent2 = new Intent(homeact.this,login.class);

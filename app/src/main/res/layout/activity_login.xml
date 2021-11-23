@@ -72,24 +72,24 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.961"
+        app:layout_constraintVertical_bias="0.944"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/register1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Signup"
         android:onClick="gotoregister"
+        android:text="Signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.944" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
