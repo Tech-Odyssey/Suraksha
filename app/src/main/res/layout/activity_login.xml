@@ -20,35 +20,85 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/girlphone" />
 
-    <EditText
-        android:id="@+id/email1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email"
-        android:backgroundTint="#F0F0F0"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+    <!--    <EditText-->
+<!--        android:id="@+id/email1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Email"-->
+<!--        android:backgroundTint="#F0F0F0"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.674" />-->
 
-    <EditText
-        android:id="@+id/password1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:backgroundTint="#F0F0F0"
+    <soup.neumorphism.NeumorphCardView
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="258dp"
+        android:layout_height="74dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.782" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.706"
+        app:neumorph_shadowColorDark="#b27f7f"
+        app:neumorph_shadowColorLight="#ffbfb6"
+        app:neumorph_shapeType="pressed">
+
+        <EditText
+            android:id="@+id/email1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F0F0F0"
+            android:ems="10"
+            android:hint="    Email"
+            android:inputType="textPersonName" />
+    </soup.neumorphism.NeumorphCardView>
+
+    <!--    <EditText-->
+<!--        android:id="@+id/password1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Password"-->
+<!--        android:inputType="textPassword"-->
+<!--        android:backgroundTint="#F0F0F0"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.782" />-->
+
+    <soup.neumorphism.NeumorphCardView
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="258dp"
+        android:layout_height="74dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.818"
+        app:neumorph_shadowColorDark="#b27f7f"
+        app:neumorph_shadowColorLight="#ffbfb6"
+        app:neumorph_shapeType="pressed">
+
+        <EditText
+            android:id="@+id/password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F0F0F0"
+            android:ems="10"
+            android:hint="    Password"
+            android:inputType="textPassword" />
+    </soup.neumorphism.NeumorphCardView>
 
     <TextView
         android:id="@+id/textView"
@@ -65,31 +115,56 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.093" />
 
-    <Button
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/loginbtn"
+        style="@style/Widget.Neumorph.Button"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.944"
+        app:layout_constraintVertical_bias="0.943"
+        app:neumorph_shadowColorDark="#b27f7f"
+        app:neumorph_shadowColorLight="#ffbfb6"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/register1"
+        style="@style/Widget.Neumorph.Button"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:onClick="gotoregister"
         android:text="Signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.943"
+        app:neumorph_shadowColorDark="#b27f7f"
+        app:neumorph_shadowColorLight="#ffbfb6" />
 
+    <soup.neumorphism.NeumorphFloatingActionButton
+        android:id="@+id/ArrowBtn"
+        style="@style/Widget.Neumorph.FloatingActionButton"
+        android:layout_width="80dp"
+
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/greyarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955"
+        app:neumorph_backgroundColor="#2f2e41"
+        app:neumorph_shadowColorDark="#b27f7f"
+        app:neumorph_shadowColorLight="#ffbfb6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

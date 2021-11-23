@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -99,6 +100,9 @@ public class login extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     public void gotoregister(View view){
         Intent i1 = new Intent(this, register.class);

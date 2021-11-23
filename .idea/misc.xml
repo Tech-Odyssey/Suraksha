@@ -9,9 +9,9 @@
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2703125" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/drawable/suraksha_logo_background.xml" value="0.2703125" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_crimerate.xml" value="0.25416666666666665" />
-        <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_homeact.xml" value="0.264" />
+        <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_homeact.xml" value="0.1" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_homeslideact.xml" value="0.25416666666666665" />
-        <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_messages.xml" value="0.25416666666666665" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/User/Parijat Rai/Desktop/GitHub/Suraksha/app/src/main/res/layout/app_bar_homeslideact.xml" value="0.25416666666666665" />
@@ -39,7 +39,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
