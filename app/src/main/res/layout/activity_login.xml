@@ -115,6 +115,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.093" />
 
+    <!--    <soup.neumorphism.NeumorphFloatingActionButton-->
+<!--        android:id="@+id/ArrowBtn"-->
+<!--        style="@style/Widget.Neumorph.FloatingActionButton"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/greyarrow"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.918"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.955"-->
+<!--        app:neumorph_backgroundColor="#2f2e41"-->
+<!--        app:neumorph_shadowColorDark="#b27f7f"-->
+<!--        app:neumorph_shadowColorLight="#ffbfb6" />-->
+
     <soup.neumorphism.NeumorphButton
         android:id="@+id/loginbtn"
         style="@style/Widget.Neumorph.Button"
@@ -124,10 +141,10 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.943"
+        app:layout_constraintVertical_bias="0.975"
         app:neumorph_shadowColorDark="#b27f7f"
         app:neumorph_shadowColorLight="#ffbfb6"
         tools:ignore="MissingConstraints" />
@@ -145,24 +162,7 @@
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.943"
-        app:neumorph_shadowColorDark="#b27f7f"
-        app:neumorph_shadowColorLight="#ffbfb6" />
-
-    <soup.neumorphism.NeumorphFloatingActionButton
-        android:id="@+id/ArrowBtn"
-        style="@style/Widget.Neumorph.FloatingActionButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/greyarrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955"
-        app:neumorph_backgroundColor="#2f2e41"
+        app:layout_constraintVertical_bias="0.975"
         app:neumorph_shadowColorDark="#b27f7f"
         app:neumorph_shadowColorLight="#ffbfb6" />
 
@@ -173,10 +173,9 @@
         android:text="Forgot Password?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.876" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
