@@ -6,24 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".homeact"
 android:background="@drawable/mainscreenbg"
-    android:id="@+id/constraint_layout"><![CDATA[
-
-    >
-
-    // for message
-
-    // circle menu
-
-
-
-
-
-
-
-
-
-
-    ]]>
+    android:id="@+id/constraint_layout">
 
     <ImageView
         android:id="@+id/sos_img"
@@ -31,10 +14,10 @@ android:background="@drawable/mainscreenbg"
         android:layout_height="305dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187"
+        app:layout_constraintVertical_bias="0.312"
         app:srcCompat="@drawable/sosbut" />
 
     <TextView
@@ -105,6 +88,17 @@ android:background="@drawable/mainscreenbg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767" />
+
+    <EditText
+        android:id="@+id/SOSmssg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

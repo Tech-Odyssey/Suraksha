@@ -28,7 +28,10 @@ public class login extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mRegisterBtn;
     Button mLoginBtn;
+
     FirebaseAuth fAuth;
+
+
 
 
     @Override
@@ -49,7 +52,6 @@ public class login extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fAuth.getCurrentUser();
-
 
         if(user!=null){
             startActivity(new Intent(login.this, homeact.class));

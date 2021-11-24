@@ -7,10 +7,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
@@ -35,6 +37,9 @@ public class homeact extends AppCompatActivity {
     ImageView mSos;
     EditText mnumber;
     EditText mmessageforSOS;
+
+    //calling
+    private static final int Request_Call = 1;
     final int SEND_SMS_REQUEST_CODE =1;
 
     // for circle menu
@@ -49,7 +54,7 @@ public class homeact extends AppCompatActivity {
         mSos = findViewById(R.id.sos_img);
         mmessages = findViewById(R.id.MSSGS);
         mnumber = findViewById(R.id.editTextPhone);
-//        mmessageforSOS = findViewById(R.id.messagehome);
+         mmessageforSOS = findViewById(R.id.SOSmssg);
         //circle menu
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
@@ -101,6 +106,7 @@ public class homeact extends AppCompatActivity {
 
 
 
+        // for calls
 
 
         mmessages.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +126,7 @@ public class homeact extends AppCompatActivity {
         }
         mSos.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View arg0) {
                 String no=mnumber.getText().toString();
                 String msg=mmessageforSOS.getText().toString();
@@ -134,8 +141,10 @@ public class homeact extends AppCompatActivity {
                 SmsManager sms=SmsManager.getDefault();
                 sms.sendTextMessage(no, null, msg, pi,null);
 
+
                 Toast.makeText(getApplicationContext(), "Message Sent successfully!",
                         Toast.LENGTH_LONG).show();
+                makePhoneCall();
             }
         });
 
@@ -143,9 +152,6 @@ public class homeact extends AppCompatActivity {
 
 
     }
-
-
-
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         Intent intent2 = new Intent(homeact.this,login.class);
@@ -161,5 +167,36 @@ public class homeact extends AppCompatActivity {
     public void gotocrime(View view) {
         Intent intentcrime=new Intent(homeact.this,crimerate.class);
         startActivity(intentcrime);
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == Request_Call){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                makePhoneCall();
+            }else {
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    //function for phone call
+    private void makePhoneCall(){
+        String no=mnumber.getText().toString();
+        if(no.trim().length()>0){
+
+            if(ContextCompat.checkSelfPermission(homeact.this,Manifest.permission.CALL_PHONE)!=PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(homeact.this,
+                        new String[]{Manifest.permission.CALL_PHONE},Request_Call);
+
+            }else{
+                String dial = "tel:" + no;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+        }else{
+            Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
+        }
     }
 }
