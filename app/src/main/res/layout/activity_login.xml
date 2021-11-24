@@ -153,7 +153,6 @@
         android:id="@+id/ArrowBtn"
         style="@style/Widget.Neumorph.FloatingActionButton"
         android:layout_width="80dp"
-
         android:layout_height="80dp"
         android:scaleType="centerCrop"
         android:src="@drawable/greyarrow"
@@ -166,5 +165,18 @@
         app:neumorph_backgroundColor="#2f2e41"
         app:neumorph_shadowColorDark="#b27f7f"
         app:neumorph_shadowColorLight="#ffbfb6" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
