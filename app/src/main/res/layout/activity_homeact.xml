@@ -10,6 +10,7 @@
 
 
     <soup.neumorphism.NeumorphCardView
+        android:id="@+id/neumorphCardView3"
         style="@style/Widget.Neumorph.CardView"
         android:layout_width="245dp"
         android:layout_height="69dp"
@@ -30,8 +31,8 @@
             android:ems="10"
             android:hint="  Phone Number For SOS"
             android:inputType="phone"
-            android:textColorHint="#6EFFFFFF"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textColorHint="#6EFFFFFF" />
     </soup.neumorphism.NeumorphCardView>
 
     <soup.neumorphism.NeumorphCardView
@@ -166,5 +167,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maps2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.398" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

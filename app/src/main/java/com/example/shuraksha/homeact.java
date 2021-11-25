@@ -33,6 +33,7 @@ import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
 public class homeact extends AppCompatActivity {
     Button mlogout;
+    Button mmaps2;
     Button mmessages;
     Button viewmap;
     ImageView mSos;
@@ -55,12 +56,21 @@ public class homeact extends AppCompatActivity {
         mSos = findViewById(R.id.sos_img);
         mmessages = findViewById(R.id.MSSGS);
         viewmap = findViewById(R.id.mapbtn);
+        mmaps2 = findViewById(R.id.button2);
         mnumber = findViewById(R.id.editTextPhone);
          mmessageforSOS = findViewById(R.id.SOSmssg);
         //circle menu
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
 
+
+        mmaps2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(homeact.this, maps_page_2.class);
+                startActivity(i1);
+            }
+        });
         // for circle menu
         circleMenu.setMainMenu(Color.parseColor("#FF8385"),R.mipmap.list,R.mipmap.multiply)
                 .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.home)
