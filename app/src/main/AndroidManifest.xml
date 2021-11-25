@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shuraksha">
         <activity
+            android:name=".helpline"
+            android:exported="false" />
+        <activity
             android:name=".maps_page_2"
             android:exported="false" />
         <activity
@@ -38,10 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBhm_51C8XOrulfCY1OsFaqDo5NFTyDiOQ" />
