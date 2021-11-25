@@ -138,22 +138,7 @@ public class homeact extends AppCompatActivity {
             @Override
 
             public void onClick(View arg0) {
-                String no=mnumber.getText().toString();
-                String msg=mmessageforSOS.getText().toString();
-
-                msg = "This is a SOS message all available units please respond";
-
-                //Getting intent and PendingIntent instance
-                Intent intent=new Intent(getApplicationContext(),messages.class);
-                PendingIntent pi=PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
-
-                //Get the SmsManager instance and call the sendTextMessage method to send message
-                SmsManager sms=SmsManager.getDefault();
-                sms.sendTextMessage(no, null, msg, pi,null);
-
-
-                Toast.makeText(getApplicationContext(), "Message Sent successfully!",
-                        Toast.LENGTH_LONG).show();
+                sendMssg();
                 makePhoneCall();
             }
         });
@@ -162,6 +147,35 @@ public class homeact extends AppCompatActivity {
 
 
     }
+    // for messages
+    private void sendMssg() {
+        String no=mnumber.getText().toString();
+        String msg=mmessageforSOS.getText().toString();
+
+        msg = "This is a SOS message all available units please respond";
+
+
+        if(no.trim().length()>0) {
+            if(ContextCompat.checkSelfPermission(homeact.this,Manifest.permission.SEND_SMS)!=PackageManager.PERMISSION_GRANTED) {
+
+
+                //Getting intent and PendingIntent instance
+                Intent intent = new Intent(getApplicationContext(), messages.class);
+                PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+                //Get the SmsManager instance and call the sendTextMessage method to send message
+                SmsManager sms = SmsManager.getDefault();
+                sms.sendTextMessage(no, null, msg, pi, null);
+
+
+                Toast.makeText(getApplicationContext(), "Message Sent successfully!",
+                        Toast.LENGTH_LONG).show();
+            }
+        }else{
+            Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         Intent intent2 = new Intent(homeact.this,login.class);
@@ -190,6 +204,7 @@ public class homeact extends AppCompatActivity {
             }
         }
     }
+
 
     //function for phone call
     private void makePhoneCall(){
