@@ -184,29 +184,36 @@ public class homeact extends AppCompatActivity  {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.SEND_SMS},SEND_SMS_REQUEST_CODE);
         }
-        mSos.setOnClickListener(new View.OnClickListener(){
+        mSos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
                 String no=mnumber.getText().toString();
                 String msg=mmessageforSOS.getText().toString();
 
-                msg = "SOS Warning: This user is in DANGER and needs your help. Please contact him/her ASAP and inform the authorities as well. Last known LOCATION of the user is :" + "https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y+" \n- By Team Suraksha.";
+                msg = "SOS WARNING: The user is in danger:" +"https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y;
 
                 //Getting intent and PendingIntent instance
                 if(no.trim().length()>0) {
-                        Intent intent = new Intent(getApplicationContext(), homeact.class);
-                        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+                    Intent intent = new Intent(getApplicationContext(), messages.class);
+                    PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
-                        //Get the SmsManager instance and call the sendTextMessage method to send message
-                        SmsManager sms = SmsManager.getDefault();
-                        sms.sendTextMessage(no, null, msg, pi, null);
+                    //Get the SmsManager instance and call the sendTextMessage method to send message
+                    SmsManager sms = SmsManager.getDefault();
+                    sms.sendTextMessage(no, null, msg, pi, null);
 
-                        Toast.makeText(getApplicationContext(), "Message Sent successfully!",
-                                Toast.LENGTH_LONG).show();
-                    }else{
+                    Toast.makeText(getApplicationContext(), "Message Sent successfully!",
+                            Toast.LENGTH_LONG).show();
+                }else{
                     Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        mSos.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                makePhoneCall();
+                return false;
             }
         });
         mSos.setOnLongClickListener(new View.OnLongClickListener() {
