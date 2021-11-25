@@ -116,32 +116,32 @@ public class homeact extends AppCompatActivity  {
                         switch (index){
                             case 0:
                                 Toast.makeText(homeact.this, "Home", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 Intent intent = new Intent(homeact.this, homeact.class);
                                 startActivity(intent);
                                 break;
                             case 1:
-                                Toast.makeText(homeact.this, "New Features will be here", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                Toast.makeText(homeact.this, "Helpline", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 break;
                             case 2:
-                                Toast.makeText(homeact.this, "Your profile is being scanned by CIA", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                Toast.makeText(homeact.this, "Crime Prediction", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 break;
                             case 3:
-                                Toast.makeText(homeact.this, "Settings is currently on vacation", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                Toast.makeText(homeact.this, "Geolocation", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 break;
                             case 4:
                                 Toast.makeText(homeact.this, "You have been logged out bye bye", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 FirebaseAuth.getInstance().signOut();
                                 Intent intent2 = new Intent(homeact.this,login.class);
                                 startActivity(intent2);
                                 break;
                             case 5:
-                                Toast.makeText(homeact.this, "Help is currently helpless", Toast.LENGTH_SHORT).show();
-                                constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                Toast.makeText(homeact.this, "Messages", Toast.LENGTH_SHORT).show();
+                                constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
                                 break;
                         }
                     }
@@ -182,7 +182,7 @@ public class homeact extends AppCompatActivity  {
                 String no=mnumber.getText().toString();
                 String msg=mmessageforSOS.getText().toString();
 
-                msg = "SOS WARNING: The user is in danger:" +"https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y;
+                msg = "SOS Warning: This user is in DANGER and needs your help. Please contact him/her ASAP and inform the authorities as well. Last known LOCATION of the user is :" + "https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y+" \n- By Team Suraksha.";
 
                 //Getting intent and PendingIntent instance
                 if(no.trim().length()>0) {
