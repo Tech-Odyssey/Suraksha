@@ -33,10 +33,7 @@ import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
 public class homeact extends AppCompatActivity {
     Button mlogout;
-    Button mmaps2;
-    Button mhelpline;
     Button mmessages;
-    Button viewmap;
     ImageView mSos;
     EditText mnumber;
     EditText mmessageforSOS;
@@ -56,31 +53,12 @@ public class homeact extends AppCompatActivity {
         setContentView(R.layout.activity_homeact);
         mSos = findViewById(R.id.sos_img);
         mmessages = findViewById(R.id.MSSGS);
-        viewmap = findViewById(R.id.mapbtn);
-        mmaps2 = findViewById(R.id.button2);
         mnumber = findViewById(R.id.editTextPhone);
         mmessageforSOS = findViewById(R.id.SOSmssg);
-        mhelpline = findViewById(R.id.helpbtn);
         //circle menu
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
-        //helpline
 
-        mhelpline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i1 = new Intent(homeact.this,helpline.class);
-                startActivity(i1);
-            }
-        });
-
-        mmaps2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i1 = new Intent(homeact.this, maps_page_2.class);
-                startActivity(i1);
-            }
-        });
         // for circle menu
         circleMenu.setMainMenu(Color.parseColor("#FF8385"),R.mipmap.list,R.mipmap.multiply)
                 .addSubMenu(Color.parseColor("#FF8385"),R.mipmap.home)
@@ -139,14 +117,6 @@ public class homeact extends AppCompatActivity {
             }
         });
 
-        viewmap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(homeact.this,MapsPage.class);
-                startActivity(intent2);
-            }
-        });
-
         // for messages in home page via edit text|| trying to connect the SOS button so that it acts as the send button for sms
         if(checkPermission(Manifest.permission.SEND_SMS)){
             mSos.setEnabled(true);
@@ -158,8 +128,30 @@ public class homeact extends AppCompatActivity {
             @Override
 
             public void onClick(View arg0) {
-                sendMssg();
+                String no=mnumber.getText().toString();
+                String msg=mmessageforSOS.getText().toString();
+
+                msg = "This is a SOS message all available units please respond";
+
+                //Getting intent and PendingIntent instance
+                Intent intent=new Intent(getApplicationContext(),messages.class);
+                PendingIntent pi=PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
+
+                //Get the SmsManager instance and call the sendTextMessage method to send message
+                SmsManager sms=SmsManager.getDefault();
+                sms.sendTextMessage(no, null, msg, pi,null);
+
+
+                Toast.makeText(getApplicationContext(), "Message Sent successfully!",
+                        Toast.LENGTH_LONG).show();
+
+            }
+        });
+        mSos.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 makePhoneCall();
+                return false;
             }
         });
 
@@ -167,35 +159,6 @@ public class homeact extends AppCompatActivity {
 
 
     }
-    // for messages
-    private void sendMssg() {
-        String no=mnumber.getText().toString();
-        String msg=mmessageforSOS.getText().toString();
-
-        msg = "This is a SOS message all available units please respond";
-
-
-        if(no.trim().length()>0) {
-            if(ContextCompat.checkSelfPermission(homeact.this,Manifest.permission.SEND_SMS)!=PackageManager.PERMISSION_GRANTED) {
-
-
-                //Getting intent and PendingIntent instance
-                Intent intent = new Intent(getApplicationContext(), messages.class);
-                PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
-
-                //Get the SmsManager instance and call the sendTextMessage method to send message
-                SmsManager sms = SmsManager.getDefault();
-                sms.sendTextMessage(no, null, msg, pi, null);
-
-
-                Toast.makeText(getApplicationContext(), "Message Sent successfully!",
-                        Toast.LENGTH_LONG).show();
-            }
-        }else{
-            Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
-        }
-    }
-
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         Intent intent2 = new Intent(homeact.this,login.class);
@@ -224,7 +187,6 @@ public class homeact extends AppCompatActivity {
             }
         }
     }
-
 
     //function for phone call
     private void makePhoneCall(){
