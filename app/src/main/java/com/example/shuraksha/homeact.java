@@ -34,6 +34,7 @@ import com.hitomi.cmlibrary.OnMenuSelectedListener;
 public class homeact extends AppCompatActivity {
     Button mlogout;
     Button mmaps2;
+    Button mhelpline;
     Button mmessages;
     Button viewmap;
     ImageView mSos;
@@ -58,11 +59,20 @@ public class homeact extends AppCompatActivity {
         viewmap = findViewById(R.id.mapbtn);
         mmaps2 = findViewById(R.id.button2);
         mnumber = findViewById(R.id.editTextPhone);
-         mmessageforSOS = findViewById(R.id.SOSmssg);
+        mmessageforSOS = findViewById(R.id.SOSmssg);
+        mhelpline = findViewById(R.id.helpbtn);
         //circle menu
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
+        //helpline
 
+        mhelpline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(homeact.this,helpline.class);
+                startActivity(i1);
+            }
+        });
 
         mmaps2.setOnClickListener(new View.OnClickListener() {
             @Override
