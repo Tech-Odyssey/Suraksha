@@ -53,7 +53,7 @@ public class helpline extends AppCompatActivity {
         mmadhushimaam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makePhoneCall4();
+                
             }
         });
     }
@@ -64,7 +64,6 @@ public class helpline extends AppCompatActivity {
                 makePhoneCall1();
                 makePhoneCall2();
                 makePhoneCall3();
-                makePhoneCall4();
             }else{
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
@@ -122,7 +121,7 @@ public class helpline extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
         }
     }
-    private void makePhoneCall4(){
+    /*private void makePhoneCall4(){
         long no = 9829745279l;
         if(no>0){
 
@@ -138,5 +137,5 @@ public class helpline extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 }
