@@ -83,17 +83,22 @@
         app:layout_constraintVertical_bias="0.211"
         app:srcCompat="@drawable/call_support" />
 
-    <Button
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/madhushimaam"
+        style="@style/Widget.Neumorph.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Madhushi Ma'am"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintVertical_bias="0.975"
+        app:neumorph_shadowColorDark="#08070f"
+        app:neumorph_shadowColorLight="#3c3768" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

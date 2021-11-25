@@ -12,8 +12,8 @@
     <soup.neumorphism.NeumorphCardView
         android:id="@+id/neumorphCardView3"
         style="@style/Widget.Neumorph.CardView"
-        android:layout_width="245dp"
-        android:layout_height="69dp"
+        android:layout_width="254dp"
+        android:layout_height="66dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

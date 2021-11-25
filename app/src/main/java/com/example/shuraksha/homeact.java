@@ -191,7 +191,7 @@ public class homeact extends AppCompatActivity  {
                 String no=mnumber.getText().toString();
                 String msg=mmessageforSOS.getText().toString();
 
-                msg = "SOS WARNING: The user is in danger:" +"https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y;
+                msg = "SOS WARNING: The user is in danger. Contact Authorities. Last LOCATION:" +"https://www.google.com/maps/search/?api=1&query="+x+"%2C"+y;
 
                 //Getting intent and PendingIntent instance
                 if(no.trim().length()>0) {
