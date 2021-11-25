@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.InetAddresses;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -123,14 +124,20 @@ public class homeact extends AppCompatActivity  {
                             case 1:
                                 Toast.makeText(homeact.this, "Helpline", Toast.LENGTH_SHORT).show();
                                 constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
+                                Intent i1 = new Intent(homeact.this,helpline.class);
+                                startActivity(i1);
                                 break;
                             case 2:
                                 Toast.makeText(homeact.this, "Crime Prediction", Toast.LENGTH_SHORT).show();
                                 constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
+                                Intent i2 = new Intent(homeact.this,crimerate.class);
+                                startActivity(i2);
                                 break;
                             case 3:
                                 Toast.makeText(homeact.this, "Geolocation", Toast.LENGTH_SHORT).show();
                                 constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
+                                Intent i3 = new Intent(homeact.this,MapsPage.class);
+                                startActivity(i3);
                                 break;
                             case 4:
                                 Toast.makeText(homeact.this, "You have been logged out bye bye", Toast.LENGTH_SHORT).show();
@@ -142,6 +149,8 @@ public class homeact extends AppCompatActivity  {
                             case 5:
                                 Toast.makeText(homeact.this, "Messages", Toast.LENGTH_SHORT).show();
                                 constraintLayout.setBackgroundColor(Color.parseColor("#2F2E41"));
+                                Intent i5 = new Intent(homeact.this,messages.class);
+                                startActivity(i5);
                                 break;
                         }
                     }
