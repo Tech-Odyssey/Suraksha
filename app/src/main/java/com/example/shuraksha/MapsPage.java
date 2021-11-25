@@ -3,6 +3,7 @@ package com.example.shuraksha;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -10,10 +11,13 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -22,20 +26,28 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.ArrayList;
 
 public class MapsPage extends AppCompatActivity {
 
     // initializing
     // FusedLocationProviderClient
     // object
-    FusedLocationProviderClient mFusedLocationClient;
+    public FusedLocationProviderClient mFusedLocationClient;
 
     // Initializing other items
     // from layout file
     TextView latitudeTextView, longitTextView;
     int PERMISSION_ID = 44;
+    public LocationSettingsRequest.Builder builder;
+    public String x= "", y ="";
+    public static final int REQUEST_LOCATION =1;
+    LocationManager locationManager;
+    ImageView img ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +56,67 @@ public class MapsPage extends AppCompatActivity {
 
         latitudeTextView = findViewById(R.id.latTextView);
         longitTextView = findViewById(R.id.lonTextView);
+        img = findViewById(R.id.locid);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "lat is:"+x+"long is:"+y, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // method to get the location
         getLastLocation();
+
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            onGPS();
+        }else{
+            startTrack();
+        }
     }
+    public void loadData(){
+        ArrayList<String> thelist = new ArrayList<>();
+        String mssg = "I need help Latitude:"+x+"Longitude"+y;
+        String number = "";
+    }
+    public void startTrack() {
+        if(ActivityCompat.checkSelfPermission(MapsPage.this,Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapsPage.this,Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION);
+        }else{
+            Location locationGPS = locationManager.getLastKnownLocation((LocationManager.GPS_PROVIDER));
+            if(locationGPS != null){
+                double lat = locationGPS.getLatitude();
+                double lng = locationGPS.getLongitude();
+                x = String.valueOf(lat);
+                y = String.valueOf(lng);
+            }else{
+                Toast.makeText(this, "Unable to find location", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void onGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent((Settings.ACTION_LOCATION_SOURCE_SETTINGS)));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
 
     @SuppressLint("MissingPermission")
     private void getLastLocation() {

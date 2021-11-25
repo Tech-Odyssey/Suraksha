@@ -1,6 +1,7 @@
 package com.example.shuraksha;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
@@ -9,11 +10,15 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +27,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,8 +38,7 @@ import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
 
-
-public class homeact extends AppCompatActivity {
+public class homeact extends AppCompatActivity  {
     Button mlogout;
     Button mmaps2;
     Button mhelpline;
@@ -40,6 +47,14 @@ public class homeact extends AppCompatActivity {
     ImageView mSos;
     EditText mnumber;
     EditText mmessageforSOS;
+    public FusedLocationProviderClient mFusedLocationClient;
+
+
+    public LocationSettingsRequest.Builder builder;
+    public String x= "", y ="";
+    public static final int REQUEST_LOCATION =1;
+    LocationManager locationManager;
+
 
     //calling
     private static final int Request_Call = 1;
@@ -65,7 +80,7 @@ public class homeact extends AppCompatActivity {
         circleMenu = findViewById(R.id.circle_menu);
         constraintLayout = findViewById(R.id.constraint_layout);
         //helpline
-
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mhelpline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +88,12 @@ public class homeact extends AppCompatActivity {
                 startActivity(i1);
             }
         });
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            onGPS();
+        }else{
+            startTrack();
+        }
 
         mmaps2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +182,7 @@ public class homeact extends AppCompatActivity {
                 String no=mnumber.getText().toString();
                 String msg=mmessageforSOS.getText().toString();
 
-                msg = "This is a SOS message all available units please respond";
+                msg = "SOS WARNING: The user is in danger and last know coordinartes are lat:"+x+" &long:"+y;
 
                 //Getting intent and PendingIntent instance
                 if(no.trim().length()>0) {
@@ -192,7 +213,39 @@ public class homeact extends AppCompatActivity {
 
     }
     // for messages
+    public void startTrack() {
+        if(ActivityCompat.checkSelfPermission(homeact.this,Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(homeact.this,Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION);
+        }else{
+            Location locationGPS = locationManager.getLastKnownLocation((LocationManager.GPS_PROVIDER));
+            if(locationGPS != null){
+                double lat = locationGPS.getLatitude();
+                double lng = locationGPS.getLongitude();
+                x = String.valueOf(lat);
+                y = String.valueOf(lng);
+            }else{
+                Toast.makeText(this, "Unable to find location", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    private void onGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent((Settings.ACTION_LOCATION_SOURCE_SETTINGS)));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
+    }
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         Intent intent2 = new Intent(homeact.this,login.class);

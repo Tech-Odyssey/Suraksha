@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/locid"
         android:layout_width="287dp"
         android:layout_height="216dp"
 
