@@ -8,6 +8,19 @@
     tools:context=".messages"
     android:background="#FFB6B6">
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:textColor="#2F2E41"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
     <soup.neumorphism.NeumorphCardView
         android:id="@+id/neumorphCardView2"
         style="@style/Widget.Neumorph.CardView"
@@ -77,7 +90,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135"
+        app:layout_constraintVertical_bias="0.221"
         app:srcCompat="@drawable/girlphone" />
 
 

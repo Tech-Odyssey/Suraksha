@@ -4,41 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".helpline">
+    tools:context=".helpline"
+    android:background="@drawable/mainscreenbg">
 
-    <Button
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HELPLINES"
+        android:textColor="#FEB8B8"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/Ambulance"
+        style="@style/Widget.Neumorph.Button"
+        app:neumorph_shadowColorDark="#08070f"
+        app:neumorph_shadowColorLight="#3c3768"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ambulance"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.745" />
 
-    <Button
+
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/police"
+        style="@style/Widget.Neumorph.Button"
+        app:neumorph_shadowColorDark="#08070f"
+        app:neumorph_shadowColorLight="#3c3768"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Police"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.607" />
 
-    <Button
+    <soup.neumorphism.NeumorphButton
         android:id="@+id/Women_Helpline"
+        style="@style/Widget.Neumorph.Button"
+        app:neumorph_shadowColorDark="#08070f"
+        app:neumorph_shadowColorLight="#3c3768"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Women's Helpline"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676" />
+        app:layout_constraintVertical_bias="0.872" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="314dp"
+        android:layout_height="281dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.211"
+        app:srcCompat="@drawable/call_support" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
