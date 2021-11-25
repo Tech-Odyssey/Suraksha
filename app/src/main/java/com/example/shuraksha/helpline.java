@@ -19,6 +19,7 @@ public class helpline extends AppCompatActivity {
     Button mpolice;
     Button mambulance;
     Button mwomen_helpline;
+    Button mmadhushimaam;
     private static final int Request_Call = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class helpline extends AppCompatActivity {
         mpolice = findViewById(R.id.police);
         mambulance = findViewById(R.id.Ambulance);
         mwomen_helpline = findViewById(R.id.Women_Helpline);
+        mmadhushimaam = findViewById(R.id.madhushimaam);
 
         mpolice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +49,13 @@ public class helpline extends AppCompatActivity {
                 makePhoneCall3();
             }
         });
+
+        mmadhushimaam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makePhoneCall4();
+            }
+        });
     }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -55,7 +64,8 @@ public class helpline extends AppCompatActivity {
                 makePhoneCall1();
                 makePhoneCall2();
                 makePhoneCall3();
-            } else {
+                makePhoneCall4();
+            }else{
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
@@ -97,6 +107,23 @@ public class helpline extends AppCompatActivity {
     }
     private void makePhoneCall3(){
         long no = 1091;
+        if(no>0){
+
+            if(ContextCompat.checkSelfPermission(helpline.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(helpline.this,
+                        new String[]{Manifest.permission.CALL_PHONE},Request_Call);
+
+            }else{
+                String dial = "tel:" + no;
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(dial)));
+            }
+        }else{
+            Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void makePhoneCall4(){
+        long no = 9829745279l;
         if(no>0){
 
             if(ContextCompat.checkSelfPermission(helpline.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){

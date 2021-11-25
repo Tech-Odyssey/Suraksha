@@ -184,7 +184,7 @@ public class homeact extends AppCompatActivity  {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.SEND_SMS},SEND_SMS_REQUEST_CODE);
         }
-        mSos.setOnClickListener(new View.OnClickListener() {
+        mSos.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
 
@@ -195,7 +195,7 @@ public class homeact extends AppCompatActivity  {
 
                 //Getting intent and PendingIntent instance
                 if(no.trim().length()>0) {
-                        Intent intent = new Intent(getApplicationContext(), messages.class);
+                        Intent intent = new Intent(getApplicationContext(), homeact.class);
                         PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
                         //Get the SmsManager instance and call the sendTextMessage method to send message
